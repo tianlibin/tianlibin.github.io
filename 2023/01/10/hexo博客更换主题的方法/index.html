@@ -76,6 +76,9 @@ hexo提供了很多主题可以参考，网址在这里：https://hexo.io/themes
 <p>修改成我新下载的light主题之后是这样的：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">theme: light</span><br></pre></td></tr></table></figure>
 <p>然后，通过运行命令 hexo s ，启动本地服务，通过<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 查看修改后的效果。</p>
+<p>运行以下命令，使主题更新到博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
 <h4 id="3-主题更新"><a href="#3-主题更新" class="headerlink" title="3. 主题更新"></a>3. 主题更新</h4><p>这一步不是必须的，如果主题有优化更新或者修改bug之后，我们在本地需要同步更新一下，在博客目录运行如下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./themes/light/</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
 
