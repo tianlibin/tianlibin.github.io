@@ -45,6 +45,57 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-hexo博客如何绑定个人域名" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-01-14T04:14:13.000Z"><a href="/2023/01/14/hexo%E5%8D%9A%E5%AE%A2%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D/">2023-01-14</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2023/01/14/hexo%E5%8D%9A%E5%AE%A2%E5%A6%82%E4%BD%95%E7%BB%91%E5%AE%9A%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D/">hexo博客如何绑定个人域名</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>我利用hexo在github上搭建了自己的独立博客。如果要打开这个博客，我们则需要输入GitHub下的二级域名username.github.io，这里面的username就是你注册GitHub账户时的用户名。但是为了使自己的博客显得理加专业一起，我们可以将博客指向自己的专属域名。</p>
+<p>具体流程如下：</p>
+<h4 id="1-注册个人域名"><a href="#1-注册个人域名" class="headerlink" title="1. 注册个人域名"></a>1. 注册个人域名</h4><p>我们可在到主流域名提供商处来购买域名，例如阿里云，腾讯云等。一般的域名一年的费用在几十块钱。但是大部分靓一些的域名都已经被注册过了，这种域名购买的话，会贵一些，但是对个人用户来说也没有必要。</p>
+<p>我以阿里云为例，首先想好自己的域名，然后在阿里云上搜索，看看是否已经被注册，如果.com后缀已被注册。可以看看其它的后缀情况，例如.net，.cc等。个人一般无法注册.cn的后缀域名。另外因为涉及到备案，选择后缀时应该仔细看一下域名服务商的说明。</p>
+<p>阿里云购买域名要求先实名认证，按提示要求操作即可。</p>
+<p>最后一步就是支付。支付成功后，域名一般就注册好了。</p>
+<h4 id="2-域名解析"><a href="#2-域名解析" class="headerlink" title="2. 域名解析"></a>2. 域名解析</h4><p>还是以阿里云为例。假如我们的域名是 domain.com<br>注册好域名后，进入域名控制台，找到注册的域名，操作-&gt;解析-&gt;添加记录。<br>前缀的话，可以是@，www，或是自己想的其它域名，例如blog。<br>如果是@的话，访问时输入 <a target="_blank" rel="noopener" href="https://domain.com/">https://domain.com</a><br>如果是www的话，访问时输入 <a target="_blank" rel="noopener" href="https://www.domain.com/">https://www.domain.com</a><br>如果是blog的话，访问时输入 <a target="_blank" rel="noopener" href="https://blog.domain.com/">https://blog.domain.com</a></p>
+<p>这里有两种添加记录的方式</p>
+<ul>
+<li>一是CNAME方式，即将域名指向github下的二级域名</li>
+<li>二是A方式，即将域名指向github二级域名的Ipv4地址。获取地址的方式是打开终端，输入ping username.github.io(这里的username需要换成你自己的账号名)，如果成功了，把输出的ip地址复制一下，添加到阿里云控制台的IP地址输入框中。</li>
+</ul>
+<h4 id="3-设置github"><a href="#3-设置github" class="headerlink" title="3. 设置github"></a>3. 设置github</h4><p>登录github以后，找到自己的博客仓库，菜单：Settings-&gt;Pages-&gt;Custom domain，在输入框中输入你自己的设定域名。如果设置了前缀，要输入完整的。等待一会儿，而页面提示如下内容，说明设置好了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DNS check successful</span><br><span class="line">TLS certificate is being provisioned. This may take up to 15 minutes to complete.</span><br><span class="line">3 of 3 </span><br><span class="line">Certificate Active: The certificate has been activated. Please allow <span class="keyword">for</span> up to 30 minutes to 1 hour <span class="keyword">for</span> it to be globally available. If you still see a privacy error, you may need to restart your browser.</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-设置CNAME"><a href="#4-设置CNAME" class="headerlink" title="4. 设置CNAME"></a>4. 设置CNAME</h4><p>在本机的博客目录下面，找到source目录，在该目录下创建名为CNAME的文件(没有后缀名),以文本方式打开，添加已解析的域名，和上一步中github后台输入的域名一致。<br>最后别忘了在终端输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>等待一会儿，试试在浏览器中输入自己的域名，是不是成功了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-hexo博客更换主题的方法" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
